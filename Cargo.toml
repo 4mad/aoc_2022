@@ -1,0 +1,22 @@
+[package]
+name = "aoc_2022"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+
+[lib]
+name = "aoc_2022_lib"
+path = "src/lib.rs"
+
+
+[dev-dependencies]
+criterion = "0.4.0"
+
+
+[dependencies]
+
+
+[[bench]]
+name = "benchmarks"
+harness = false
