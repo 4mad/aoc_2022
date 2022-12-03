@@ -61,16 +61,14 @@ pub fn day1_puzzle1_attempt2(input_file_path: &str) {
    let total = f
       .split("\n\n")
       .map(|each_elf| {
-         {
-            each_elf
-               .lines()
-               .map(|single_item| {
-                  single_item
-                     .parse::<usize>()
-                     .unwrap()
-               })
-               .sum::<usize>()
-         }
+         each_elf
+            .lines()
+            .map(|single_item| {
+               single_item
+                  .parse::<usize>()
+                  .unwrap()
+            })
+            .sum::<usize>()
       })
       .max()
       .unwrap();
