@@ -3,6 +3,7 @@
 use aoc_2022_lib::{
    day1::{day1_puzzle1_attempt1, day1_puzzle1_attempt2, day1_puzzle2_attempt1},
    day2::{day2_puzzle1_attempt1, day2_puzzle2_attempt1, day2_puzzle2_attempt2},
+   day3::{day3_puzzle1_attempt1, day3_puzzle2_attempt1},
 };
 use criterion::{criterion_group, criterion_main, Criterion};
 
@@ -38,5 +39,17 @@ fn day_2_benchmark(c: &mut Criterion) {
    });
 }
 
-criterion_group!(benches, day_1_benchmark, day_2_benchmark);
+// Note, these benches are with outputs suppressed, assuming they yield the correct answer
+// day 3 | puzzle 1        time:   [292.79 µs 295.06 µs 297.93 µs]
+// day 3 | puzzle 2        time:   [312.03 µs 313.62 µs 315.58 µs]
+fn day_3_benchmark(c: &mut Criterion) {
+   c.bench_function("day 3 | puzzle 1", |b| {
+      b.iter(|| day3_puzzle1_attempt1("src/inputs/day 3/puzzle.txt"))
+   });
+   c.bench_function("day 3 | puzzle 2", |b| {
+      b.iter(|| day3_puzzle2_attempt1("src/inputs/day 3/puzzle.txt"))
+   });
+}
+
+criterion_group!(benches, day_1_benchmark, day_2_benchmark, day_3_benchmark);
 criterion_main!(benches);
