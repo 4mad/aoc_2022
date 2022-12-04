@@ -21,7 +21,7 @@ pub fn day2_puzzle1_attempt1(input_file_path: &str) {
    let mut total: usize = 0;
 
    // Run simulation for each line
-   for (_, line) in f.lines().enumerate() {
+   for line in f.lines() {
       let txt = line;
 
       // The simulation function will return the game results
@@ -76,7 +76,7 @@ pub fn day2_puzzle2_attempt1(input_file_path: &str) {
    let mut total: usize = 0;
 
    // Run simulation for each line
-   for (_, line) in f.lines().enumerate() {
+   for line in f.lines() {
       let txt = line;
 
       // The simulation function will return the game results
@@ -132,7 +132,7 @@ pub fn day2_puzzle2_attempt2(input_file_path: &str) {
    ];
 
    // Run simulation for each line
-   for (_, line) in f.lines().enumerate() {
+   for line in f.lines() {
       let txt = line;
 
       // Iterate thru the vec, get its matching index, then add one to account for 0 base

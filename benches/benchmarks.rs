@@ -8,9 +8,9 @@ use aoc_2022_lib::{
 use criterion::{criterion_group, criterion_main, Criterion};
 
 // Note, these benches are with outputs suppressed, assuming they yield the correct answer
-// day 1 | puzzle 1        time:   [54.535 µs 55.048 µs 55.721 µs]
-// day 1 | puzzle 1 | a2   time:   [57.716 µs 58.380 µs 59.452 µs]
-// day 1 | puzzle 2        time:   [57.625 µs 57.907 µs 58.291 µs]
+// day 1 | puzzle 1        time:   [54.417 µs 55.092 µs 56.215 µs]
+// day 1 | puzzle 1 | a2   time:   [62.407 µs 63.792 µs 65.349 µs]
+// day 1 | puzzle 2        time:   [56.904 µs 57.597 µs 58.515 µs]
 fn day_1_benchmark(c: &mut Criterion) {
    c.bench_function("day 1 | puzzle 1", |b| {
       b.iter(|| day1_puzzle1_attempt1("src/inputs/day 1/puzzle.txt"))
@@ -24,9 +24,9 @@ fn day_1_benchmark(c: &mut Criterion) {
 }
 
 // Note, these benches are with outputs suppressed, assuming they yield the correct answer
-// day 2 | puzzle 1        time:   [67.349 µs 67.831 µs 68.409 µs]
-// day 2 | puzzle 2        time:   [67.516 µs 68.046 µs 68.698 µs]
-// day 2 | puzzle 2 | a2   time:   [65.178 µs 65.428 µs 65.768 µs]
+// day 2 | puzzle 1        time:   [61.394 µs 61.953 µs 62.662 µs]
+// day 2 | puzzle 2        time:   [60.344 µs 60.923 µs 61.677 µs]
+// day 2 | puzzle 2 | a2   time:   [59.760 µs 60.147 µs 60.569 µs]
 fn day_2_benchmark(c: &mut Criterion) {
    c.bench_function("day 2 | puzzle 1", |b| {
       b.iter(|| day2_puzzle1_attempt1("src/inputs/day 2/puzzle.txt"))

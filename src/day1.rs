@@ -21,7 +21,7 @@ pub fn day1_puzzle1_attempt1(input_file_path: &str) {
    let mut temp_total: usize = 0;
 
    // Loop thru each line
-   for (_, line) in f.lines().enumerate() {
+   for line in f.lines() {
       let txt = line;
 
       // Check if the Line has a value or not
@@ -99,7 +99,7 @@ pub fn day1_puzzle2_attempt1(input_file_path: &str) {
    let mut temp_total: usize = 0;
 
    // Loop thru each Line
-   for (_, line) in f.lines().enumerate() {
+   for line in f.lines() {
       let txt = line;
 
       // Check if the Line has a value or not
