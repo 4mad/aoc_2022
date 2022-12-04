@@ -67,7 +67,57 @@ pub fn day3_puzzle1_attempt1_test() {
    day3_puzzle1_attempt1(input_path);
 }
 
-///------------------------------ Day 3 Puzzle 1 Objective -------------------------------
+///-------------------------------------- Attempt 2 --------------------------------------
+/// Read the file line by line. (Single threaded approach)
+/// Split line in half
+/// Do a string compare along every item in the string
+/// Kinda lazy but it seems to be incredibly faster than the HashSet, maybe i am not using
+/// the HashSet library correctly or maybe there are some initiation costs that disappear
+/// as the dataset gets larger?
+#[allow(unused_variables)]
+pub fn day3_puzzle1_attempt2(input_file_path: &str) {
+   // Open and Load whole file into 1 string
+   let f = fs::read_to_string(input_file_path).unwrap();
+
+   let total = f
+      .split('\n')
+      .map(|line| get_intersection_type3(line.split_at(line.len() / 2)))
+      .sum::<usize>();
+
+   // println!("Total of all lines: [{:#?}]!", total);
+}
+
+pub fn get_intersection_type3(sets: (&str, &str)) -> usize {
+   for ch1 in sets.0.as_bytes().iter() {
+      for ch2 in sets.1.as_bytes() {
+         if ch1 == ch2 {
+            match ch1.cmp(&96) {
+               // A starts at 65 in ascii and is worth 26 more points than a
+               std::cmp::Ordering::Less => return (ch1 - 64 + 26).into(),
+               // On err
+               std::cmp::Ordering::Equal => {
+                  panic!("We cannot have non numerical characters!")
+               },
+               // a starts at 97 in ascii
+               std::cmp::Ordering::Greater => return (ch1 - 96).into(),
+            }
+         }
+      }
+   }
+
+   panic!(
+      "No matching values found between set 1: [{}] | and set 2: [{}]!",
+      sets.0, sets.1
+   )
+}
+
+#[test]
+pub fn day3_puzzle1_attempt2_test() {
+   let input_path = "src/inputs/day 3/puzzle.txt";
+   day3_puzzle1_attempt2(input_path);
+}
+
+///------------------------------ Day 3 Puzzle 2 Objective -------------------------------
 /// Similar to p1 but instead of one line split in 2 its the comparison of 3 lines at once
 
 ///-------------------------------------- Attempt 1 --------------------------------------
